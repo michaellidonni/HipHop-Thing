@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Staatliches', sans-serif;
+    letter-spacing: 2px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(imgs/graffiti.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+}
+
+p {
+    font-weight: 300px;
+    line-height: 25px;
+    font-size: 16px;
+    opacity: 0.9;
+    color: #fff;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 64px;
+    margin: 0 0 0 30px;
+    color: #fff;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff00ff, #00ff00, #00ffff);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.timeline .timeline-container {
+    position: relative;
+    margin-bottom: 48px;
+    transition: transform 0.3s ease;
+}
+
+.timeline .timeline-container:hover {
+    transform: scale(1.05);
+}
+
+.timeline .timeline-container .timeline-icon {
+    position: absolute;
+    left: -88px;
+    top: 4px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 40px;
+    background: #000;
+    border: 3px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+}
+
+.timeline .timeline-container .timeline-icon i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #00ff00;
+}
+
+.timeline .timeline-container .timeline-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.timeline .timeline-container .timeline-body {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 20px;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.timeline .timeline-container .timeline-body:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.8);
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: -10px;
+    transform: rotate(45deg);
+    border-left: 2px solid #00ffff;
+    border-bottom: 2px solid #00ffff;
+    border-radius: 0 0 0 2px;
+}
+
+.timeline .timeline-container .timeline-body .timeline-title {
+    margin-bottom: 22px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.timeline .timeline-container .timeline-body .timeline-title .badge {
+    background: #ff0;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.7);
+    border: 2px solid #000;
+}
+
+.timeline .timeline-container .timeline-body .timeline-subtitle {
+    font-weight: 300;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #00ff00;
+}
+
+.timeline .timeline-container.primary .badge,
+.timeline .timeline-container.primary .timeline-icon {
+    background: #ff00ff !important;
+    border-color: #00ff00 !important;
+}
+
+.timeline .timeline-container.info .badge,
+.timeline .timeline-container.info .timeline-icon {
+    background: #00ffff !important;
+    border-color: #ff00ff !important;
+}
+
+.timeline .timeline-container.success .badge,
+.timeline .timeline-container.success .timeline-icon {
+    background: #00ff00 !important;
+    border-color: #ff0 !important;
+}
+
+.timeline .timeline-container.warning .badge,
+.timeline .timeline-container.warning .timeline-icon {
+    background: #ff0 !important;
+    border-color: #00ffff !important;
+}
+
+.timeline .timeline-container.danger .badge,
+.timeline .timeline-container.danger .timeline-icon {
+    background: #f00 !important;
+    border-color: #00ff00 !important;
+}
+
+.author {
+    font-family: 'Staatliches', sans-serif;
+    padding: 48px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+
+.author a:link,
+.author a:visited {
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.author a:link:hover,
+.author a:visited:hover {
+    text-decoration: none;
+    color: #ff00ff;
+}
+
+.author .btn:link,
+.author .btn:visited {
+    margin-top: 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Staatliches', sans-serif;
+    font-weight: 100;
+    color: #000;
+    background-color: #ff0;
+    padding: 24px 32px;
+    border-radius: 256px;
+    transition: 0.5s all;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+.author .btn:link:hover,
+.author .btn:visited:hover,
+.author .btn:link:focus,
+.author .btn:visited:focus,
+.author .btn:link:active,
+.author .btn:visited:active {
+    background-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 3px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    padding: 16px 0;
+}
+
+.navbar-brand {
+    font-family: 'Staatliches', sans-serif;
+    font-size: 28px;
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    margin-left: 15px;
+}
+
+.navbar-brand:hover {
+    color: #ff0;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+.nav-link {
+    font-family: 'Staatliches', sans-serif;
+    font-size: 20px;
+    color: #00ffff;
+    text-transform: uppercase;
+    margin-right: 24px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+    transform: scale(1.1);
+}
+
+.navbar-toggler {
+    border: 2px solid #00ff00;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 255, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991px) {
+    .nav-link {
+        margin: 8px 0;
+        text-align: center;
+    }
+}
