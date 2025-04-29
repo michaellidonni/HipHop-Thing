@@ -1,3 +1,5 @@
 body {
     background-image: url(imgs/brickwall.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
