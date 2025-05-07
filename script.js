@@ -1,8 +1,10 @@
+// Play intro song once on the first click anywhere on the page
 window.addEventListener('click', () => {
     const audio = document.getElementById('introSong');
     audio.play();
 }, { once: true });
 
+// Function to toggle mute/unmute and switch the mute button image
 function mute() {
     const audio = document.getElementById('introSong');
     const btnImg = document.getElementById('muteButton');
@@ -12,10 +14,11 @@ function mute() {
         btnImg.src = 'imgs/play.png';
     } else {
         audio.muted = true;
-        btnImg.src = 'imgs/mute.png'
+        btnImg.src = 'imgs/mute.png';
     }
 }
 
+// Array of famous hip-hop artists with name, era, and image
 const artists = [
     { name: "DJ Kool Herc", era: "1970s", img: "imgs/dj-kool-herc.jpg" },
     { name: "Grandmaster Flash", era: "1980s", img: "imgs/grandmasster-flash.jpg" },
@@ -25,17 +28,19 @@ const artists = [
     { name: "Playboi Carti", era: "2020s", img: "imgs/carti.jpg" }
 ];
 
+// Function to generate and display artist cards on the webpage
 function generateArtistCards() {
     const container = document.getElementById('artistContainer');
 
+    // Loop through each artist and create a card element
     artists.forEach(artist => {
         container.innerHTML += `
         <div class="col-md-4 col-lg-4">
-          <div class="card hologram-card">
-            <img src="${artist.img}" class="card-img-top" 
+          <div class="card">
+            <img src="${artist.img}" class="card-img-top" />
             <div class="card-body">
-              <h5 class="card-title text-align-center ">${artist.name}</h5>
-              <p class="card-text text-align-center text-dark">${artist.era}</p>
+              <h5 class="card-title text-align-center mt-4">${artist.name}</h5>
+              <p class="card-text text-align-center">${artist.era}</p>
             </div>
           </div>
         </div>
@@ -43,8 +48,9 @@ function generateArtistCards() {
     });
 }
 
-window.addEventListener('DOMContentLoaded', generateArtistCards);
+generateArtistCards();
 
+// Array of quiz questions, each with a question, possible answers, and the correct answer
 const questions = [
     {
         question: "1. In what year did hip-hop start?",
@@ -63,8 +69,8 @@ const questions = [
     },
     {
         question: "4. What was the first successful hip-hop single?",
-        options: ["The Message", "Rapper's Delight", "Juicy", "Walk This Way"],
-        answer: "Rapper's Delight"
+        options: ["The Message", "Rappers Delight", "Juicy", "Walk This Way"],
+        answer: "Rappers Delight"
     },
     {
         question: "5. What’s the hip-hop dance style called?",
@@ -73,32 +79,40 @@ const questions = [
     }
 ];
 
-let current = 0;
-let score = 0;
+let current = 0; // Current question
+let score = 0;   // Total correct answers
 const quiz = document.getElementById("quiz");
 const scoreText = document.getElementById("score");
 
+// Function to display a question and its answer options
 function showQuestion() {
+    // If all questions are answered, show the final score
     if (current >= questions.length) {
-        quiz.innerHTML = "";
-        scoreText.textContent = "You scored " + score + " out of " + questions.length + "!";
+        quiz.innerHTML = ""; // Clears the quiz content
+        scoreText.textContent = "You scored " + score + " out of " + questions.length + "!"; // Shows the score
         return;
     }
 
+    // Get the current question
     const q = questions[current];
-    let html = "<h3>" + q.question + "</h3>";
+    let text = "<h3>" + q.question + "</h3>"; // Display question
+
+    // Create buttons for each option
     q.options.forEach(option => {
-        html += `<button onclick="checkAnswer('${option}')">${option}</button><br>`;
+        text += `<button onclick="checkAnswer('${option}')">${option}</button><br>`;
     });
-    quiz.innerHTML = html;
+
+    quiz.innerHTML = text; // Update quiz  with new question
 }
 
+// Function to check the selected answer and move to the next question
 function checkAnswer(selected) {
     if (selected === questions[current].answer) {
-        score++;
+        score++; // Add one to score if answer is correct
     }
-    current++;
-    showQuestion();
+    current++; // Move to the next question
+    showQuestion(); // Display next question or score
 }
 
+// Start the quiz
 showQuestion();
